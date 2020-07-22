@@ -69,6 +69,7 @@ function start() {
       message: "Enter the department name"
     })
     .then(function(answer) {
+      console.log(answer);
       connection.query("INSERT INTO department SET ?", {name: answer.department},
       function(err) {
         if (err) throw err;
@@ -87,8 +88,14 @@ function start() {
 
   function addRole(){
     connection.query("SELECT * FROM department", function(err, res){
+      console.log(res);
       if(err) throw err;
-
+      // console.log(res.map(function(row) {
+      //   return {
+      //     name: row.name,
+      //     value: row.id
+      //   };
+      // })) 
       inquirer.prompt([
         {
         name: "roleTitle",
@@ -104,6 +111,7 @@ function start() {
         name: "departmentID",
         type: "list",
         message: "Choose the department",
+        // 
         choices: res.map(function(row) {
           return {
             name: row.name,
@@ -115,13 +123,19 @@ function start() {
     ])
       .then(function(answer) {
         console.log(answer);
-        // connection.query("INSERT INTO department SET ?", {name: answer.department},
-        // function(err) {
-        //   if (err) throw err;
-        //   console.log("Department was added successfully!");
-        //   start();
-        // });
+        connection.query("INSERT INTO role SET ?", {title: answer.roleTitle, salary: answer.roleSalary, department_id: answer.departmentID},
+        function(err) {
+          if (err) throw err;
+          console.log("Role was added successfully!");
+          start();
+        });
       });
     })
     
+  }
+  function viewRoles(){
+    connection.query("SELECT * FROM department", function(err, res){
+      if(err) throw err;
+      console.table(res);
+    })
   }
