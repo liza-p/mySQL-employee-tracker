@@ -1,5 +1,6 @@
 # mySQL-employee-tracker
-This application is buit using node, inquirer, and MySQL. it allows you to ADD, VIEW  departments, roles, employees and UPDATE employees roles.
+## About
+This application is a command line application for viewing, adding, and updating a MySQL database of employee. The database contains three tables: departments, employees, and roles.
 
 
 
