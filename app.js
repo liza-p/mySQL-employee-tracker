@@ -215,6 +215,7 @@ function viewEmployees(){
   function(err,res){
       if(err) throw err;
       console.table(res);
+      start();
   });
 }
 function updateEmplRole(){
