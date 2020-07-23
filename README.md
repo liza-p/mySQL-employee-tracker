@@ -6,7 +6,7 @@ This application is buit using node, inquirer, and MySQL. it allows you to ADD, 
 ## Database schema structure
 
 
-![Database Schema](Assets/schema.png)
+![Database Schema](img/schema.png)
 
 * **department**:
 
@@ -28,6 +28,9 @@ This application is buit using node, inquirer, and MySQL. it allows you to ADD, 
   * **role_id** - INT to hold reference to role employee has
   * **manager_id** - INT to hold reference to another employee that manager of the current employee. This field may be null if the employee has no manager
 
+## Demo
+
+![appDemo](img/employees.gif)
   ## Technologies Used
 - JavaScript - Core logic
 - Node and NPM
